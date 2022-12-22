@@ -19,7 +19,7 @@ class User (models.Model):
     adresse = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
     telephone = models.CharField(max_length=200)
-    idAnnancePreféré = models.IntegerField()
+    idAnnancePreféré = models.ForeignKey('Annance',  on_delete=models.SET_NULL)
 
 
 class Annance(models.Model):
@@ -35,17 +35,17 @@ class Annance(models.Model):
     commune = models.CharField(max_length=50)
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
-    idAnnanceur = models.IntegerField()
+    idAnnanceur = models.ForeignKey('User', on_delete=models.SET_NULL)
 
 
 class Photo(models.Model):
     idPhoto = models.AutoField(primary_key=True)
     url = models.URLField(max_length=200)
-    idAnnance = models.IntegerField()
+    idAnnance = models.ForeignKey('Annance',on_delete=models.SET_NULL)
 
 
 class Message(models.Model):
     idMessage = models.AutoField(primary_key=True)
     contenu = models.TextField(max_length=250)
-   # idUserSource = models.ForeignKey('User', on_delete=models.CASCADE)
-    #idUserDestination = models.ForeignKey('User', on_delete=models.CASCADE)
+    idUserSource = models.ForeignKey('User', on_delete=models.SET_NULL)
+    idUserDestination = models.ForeignKey('User', on_delete=models.SET_NULL
