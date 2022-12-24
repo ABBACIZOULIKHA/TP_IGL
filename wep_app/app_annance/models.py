@@ -1,32 +1,20 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
-categorie = (
-    'vente',
-    'echange',
-    'location',
-    'location_vacance',
-)
-
-
-class User (models.Model):
-    idUser = models.AutoField(primary_key=True)
-    nom = models.CharField(max_length=200)
-    prenom = models.CharField(max_length=200)
-    adresse = models.CharField(max_length=200)
-    email = models.EmailField(max_length=254)
-    telephone = models.CharField(max_length=200)
-    idAnnancePreféré = models.ForeignKey('Annance',  on_delete=models.SET_NULL)
-
-
 class Annance(models.Model):
-    idAnnance = models.AutoField(primary_key=True)
+    CATEGORIE = (
+        ('Vente', 'Vente'),
+        ('Echange', 'Echange'),
+        ('Location', 'Location'),
+        ('Location_Vacances', 'Location_Vacances'),
+    )
+
     titre = models.CharField(max_length=200)
-    categorie = models.CharField(max_length=200)
-    #models.CharField(max_length=50, choices=categorie, default='')
+    categorie = models.CharField(
+        max_length=50, null=True, choices=CATEGORIE)
     type = models.CharField(max_length=200)
     surface = models.CharField(max_length=200)
     description = models.TextField(null=True)
@@ -35,17 +23,36 @@ class Annance(models.Model):
     commune = models.CharField(max_length=50)
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
-    idAnnanceur = models.ForeignKey('User', on_delete=models.SET_NULL)
+    idAnnanceur = models.ForeignKey(
+        User, null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return self.titre
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='Profile')
+    nom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
+    telephone = models.IntegerField()
+    adresse = models.CharField(max_length=200)
+    idAnnancePrefere = models.ManyToManyField(Annance)
+
+    def __str__(self):
+        return self.user.username
 
 
 class Photo(models.Model):
-    idPhoto = models.AutoField(primary_key=True)
+
     url = models.URLField(max_length=200)
-    idAnnance = models.ForeignKey('Annance',on_delete=models.SET_NULL)
+    idAnnance = models.ForeignKey(
+        Annance, null=True, on_delete=models.SET_NULL)
 
 
 class Message(models.Model):
-    idMessage = models.AutoField(primary_key=True)
+
     contenu = models.TextField(max_length=250)
-    idUserSource = models.ForeignKey('User', on_delete=models.SET_NULL)
-    idUserDestination = models.ForeignKey('User', on_delete=models.SET_NULL
+    userSource = models.CharField(max_length=60)
+    userDestination = models.ForeignKey(
+        User, null=True, on_delete=models.SET_NULL)
