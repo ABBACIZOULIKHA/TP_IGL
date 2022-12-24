@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Annance, User, Photo, Message
+from .models import Annance, Profile, Photo, Message, User
 
 # Register your models here.
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 
 
 class AdminAnnance(admin.ModelAdmin):
@@ -9,8 +11,16 @@ class AdminAnnance(admin.ModelAdmin):
                     'description', 'prix', 'wilaya', 'commune', 'adresse', 'date')
 
 
-class AdminUser(admin.ModelAdmin):
-    list_display = ('nom', 'prenom', 'adresse', 'email', 'telephone')
+class AdminProfil(admin.ModelAdmin):
+    list_display = ('nom', 'prenom', 'adresse', 'telephone')
+
+
+class ProfileInline(admin.StackedInline):
+    model = Profile
+
+
+class TodoUserAdmin(UserAdmin):
+    inlines = (ProfileInline, )
 
 
 class AdminPhoto(admin.ModelAdmin):
@@ -18,10 +28,13 @@ class AdminPhoto(admin.ModelAdmin):
 
 
 class AdminMessage(admin.ModelAdmin):
-    list_display = ('idMessage', 'contenu')
+    list_display = ('userSource', 'userDestination')
 
 
 admin.site.register(Annance, AdminAnnance)
-admin.site.register(User, AdminUser)
+admin.site.register(Profile, AdminProfil)
 admin.site.register(Photo, AdminPhoto)
 admin.site.register(Message, AdminMessage)
+
+admin.site.unregister(User)
+admin.site.register(User, TodoUserAdmin)
