@@ -1,0 +1,94 @@
+:root {
+    --primary-color : #000000;
+    --secondary-color : #424baa ; 
+  }
+  
+.First_section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.img_background {
+    z-index: 1;
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    width : 980px ; 
+    height : 500px ; 
+    z-index: 1;
+    align-self: flex-end;
+/* background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+    align-self: flex-end;
+    background-image: url('../../Images/backgroundimg.jpg');    */
+}
+.img_background img {
+    z-index: 1; 
+    width : 980px ; 
+    position: relative;
+    /* left: 65px; */
+    height : 500px ;   
+    align-self: flex-end; 
+}
+.WelcomingText {
+    z-index: 3;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 700px;
+    align-items: center;
+}
+.WelcomingText h1 {
+    z-index: 3;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    margin:0;
+    width: 600px;
+    font-size:70px;
+    color: var(--secondary-color);
+    left: 240px;
+
+}
+.WelcomingText h1 span {
+    color:#000000
+}
+.WelcomingText p {
+    font-size: 1.2em;
+    font-weight: 600;
+    
+
+}
+.learn_more {
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.learn_more i {
+    margin-left: 10px;
+    font-size: 1.4em;
+}
+.arrow_bottom {
+    z-index: 3 ;
+    display: flex;
+    align-items: center;
+    color: antiquewhite;
+    background-color: var(--secondary-color);
+    position: relative;
+    top:100px;
+    left:310px ;
+    width: 40px;
+    padding: 20px;
+    height: 40px;
+    justify-content: center;
+}
+.arrow_bottom i {
+    font-size: 2.3em;
+}

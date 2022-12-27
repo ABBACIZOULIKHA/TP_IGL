@@ -1,0 +1,51 @@
+/* :root {
+    --primary-color : #000000;
+    --secondary-color : #424baa ; 
+  }
+   */
+
+.AboutusSection {
+    margin : 30px; 
+    display: flex ;
+    flex-direction: column;
+    flex-wrap: nowwrap;
+    align-items: center;
+}
+.AboutusSection h1 {
+    color: var(--secondary-color);
+    font-size: 3em;
+}
+.AboutusSection p {
+    font-size: 1.2em;
+}
+
+.firstpics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.firstpics div {
+    width: 200px;
+    height: 400px;
+    background-color: antiquewhite;
+    margin: 100px;
+}
+.secondpics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.secondpics .first {
+    width: 200px;
+    height: 400px;
+    background-color: antiquewhite;
+    margin-right:350px ; 
+}
+.secondpics .second {
+    width: 200px;
+    height: 400px;
+    background-color: antiquewhite;
+    margin-left:350px ; 
+}

@@ -1,0 +1,103 @@
+ :root {
+    --primary-color : #000000;
+    --secondary-color : #424baa ; 
+  }
+   
+
+
+
+.ImageContact{
+    display: flex;
+    flex-direction: row;
+}
+.ImagesName{
+    display: flex;
+    flex-direction: column;
+}
+.TitreInfo {
+    display: flex;
+    flex-direction: column;
+}
+.TitreInfo h1 {
+    font-size: 1.8em;
+    margin: 20px;
+}
+.TitreInfo div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.TitreInfo div p {
+    color: var(--secondary-color);
+    font-size: 1em;
+    font-weight: 600;
+    margin: 20px;
+}
+.ImagesAnnonce {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: #000000 3px solid;
+    border-radius: 5%;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.ImagesAnnonce img {
+    width: 700px;
+    height: 400px;
+    margin: 40px;
+}
+.ContactUser {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px 10px 50px;
+}
+.InputTextUser {
+    display: flex;
+    flex-direction: column;
+    border: #000000 2px solid ;
+    margin-left:20px ;
+    border-radius: 5%;
+}
+.InputTextUser textarea {
+display: flex;
+flex-direction: column;
+border: #000000 0px;
+padding: 10px;
+}
+.button {
+    background-color: var(--secondary-color);
+    color: white;
+    width: 150px;
+    height: 60px;
+    border: solid 1px black;
+    border-radius: 20%;
+    align-self: flex-end;
+    cursor: pointer;
+    font-size:1.2em;
+    font-weight: 600;
+}
+
+.ButtonUser {
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+/* Second Section  */
+
+
+
+.SecondSection2{
+display: flex;
+flex-direction: column;
+margin: 30px;
+}
+.SecondSection2 h1 {
+    font-size: 1.9em;
+}
