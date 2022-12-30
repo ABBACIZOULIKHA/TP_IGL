@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +23,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'index' %}">Home </a>
+      <a class="navbar-brand" href="{% url 'base' %}">Home </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -77,10 +80,9 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input 
-            class="form-control form-control"
+          <input
+            class="form-control mr-sm-2"
             type="search"
-            name="item_name"
             placeholder="Search"
             aria-label="Search"
           />
@@ -90,9 +92,47 @@
         </form>
       </div>
     </nav>
-
-   {% block content %}
-    {% endblock %}
+  
+    <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Example multiple select</label>
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+      </form>
+        
     <!-- Optiol JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -112,3 +152,9 @@
     ></script>
   </body>
 </html>
+
+
+
+
+
+

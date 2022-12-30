@@ -1,7 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
+
+
+class Wilaya(models.Model):
+    nom = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.nom
+
+
+class Commune(models.Model):
+    nom = models.CharField(max_length=60)
+    idwilaya = models.IntegerField()
+
+    def __str__(self):
+        return self.nom
 
 
 class Annance(models.Model):
@@ -19,7 +34,8 @@ class Annance(models.Model):
     surface = models.CharField(max_length=200)
     description = models.TextField(null=True)
     prix = models.IntegerField(null=True)
-    wilaya = models.CharField(max_length=50)
+    wilaya = models.OneToOneField(
+        Wilaya, on_delete=models.CASCADE, related_name='Annance')
     commune = models.CharField(max_length=50)
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
@@ -29,15 +45,17 @@ class Annance(models.Model):
     def __str__(self):
         return self.titre
 
+    class Meta:
+        ordering = ['date']
+
 
 class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='Profile')
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
-    telephone = models.IntegerField()
+    telephone = PhoneNumberField()
     adresse = models.CharField(max_length=200)
-    idAnnancePrefere = models.ManyToManyField(Annance)
 
     def __str__(self):
         return self.user.username

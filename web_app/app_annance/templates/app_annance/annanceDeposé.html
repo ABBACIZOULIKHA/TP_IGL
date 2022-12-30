@@ -1,0 +1,94 @@
+{% extends "app_annance/base.html" %} {% block content %}
+
+<form method ="POST">
+    {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group">
+        <label for="inputAddress2">titre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titre"
+          name="titre"
+          placeholder=""
+        />
+      </div>
+    
+    <div class="form-group col-md-4">
+        <label for="inputState">categorie</label>
+        <select id="categorie" name="categorie" class="form-control">
+          <option selected>vente</option>
+          <option>Echange</option>
+          <option>Location</option>
+          <option>LocationVacances</option>
+        </select>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">type</label>
+    <input
+      type="text"
+      class="form-control"
+      id="type"
+      name="type"
+      placeholder="Terrain or Terrain Agricol or Maison "
+    />
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">surface</label>
+    <input
+      type="text"
+      class="form-control"
+      id="surface"
+      name="surface"
+      placeholder="Apartment, studio, or floor"
+    />
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">prix</label>
+      <input type="text" class="form-control" id="prix" name="prix" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">wilaya</label>
+      <select id="wilaya" name="wilaya" class="form-control">
+        {% for wilaya in wilaya_objects %} 
+        <option selected>{{ wilaya.nom }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">commune</label>
+      <input type="text" class="form-control" id="commune" name="commune" />
+    </div>
+  </div>
+</div>
+<div class="form-group col-md-2">
+  <label for="inputZip">adresse</label>
+  <input type="text" class="form-control" id="adresse" name="adresse" />
+</div>
+</div>
+</div>
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">description : </label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+  </div>
+<div class="form-group col-md-2">
+  <label for="inputZip">date</label>
+  <input type="text" class="form-control" id="date" name="date" />
+</div>
+<div class="form-group col-md-2">
+  <label for="inputZip">photo</label>
+  <input type="text" class="form-control" id="photo" name="photo" />
+</div>
+</div>
+</div>
+{% comment %} <div class="form-group col-md-6">
+    <label for="inputEmail4">email</label>
+    <input type="email" class="form-control" id="email" name="email" />
+  </div>
+</div> {% endcomment %}
+
+  <button type="submit" class="btn btn-primary">add</button>
+</form>
+
+{% endblock %}
