@@ -1,0 +1,151 @@
+:root {
+    --primary-color : #000000;
+    --secondary-color : #2671E1 ; 
+  }
+  .body {
+    background-color: #F7FCFA;
+  }
+  header  {
+    z-index:  3;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+header img {
+    width: 75px;
+    height: 75px;
+}
+header ul  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    
+}
+header ul li  {
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+}
+header ul li a {
+    text-decoration: none;
+    color:black
+}
+header ul li::after {
+    content: '';
+    display: block; 
+    width: 0%;
+    height: 2px;
+    background-color: #2671E1;
+    transition: 0.5s ease;
+}
+header ul li:hover::after {
+width: 100%;}
+header ul button {
+    background-color: #2671E1;
+    color:white;
+    padding: 10px 30px;
+    font-size:  25px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 20%;
+    transition: 0.5s ease;
+}
+header ul button:hover {
+    background-color: #132e57;
+}
+
+
+
+
+.First_section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 100px;
+    justify-content: space-between;
+    z-index: 1;
+}
+.img_background {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width : 900px ; 
+}
+.arrow_bottom {
+    z-index: 3 ;
+    display: flex;
+    position: relative;
+    color: antiquewhite;
+    background-color: var(--secondary-color);
+    justify-self: flex-end;
+    width: 40px;
+    padding: 20px;
+    right: 40px;
+    bottom:40px;
+    height: 40px;
+    cursor: pointer;
+    justify-content: center;
+}
+.img_background img {
+    z-index: 1; 
+    width : 100%²&eww ; 
+    position: relative;
+    /* left: 65px; */
+    height : 500px ;   
+}
+.WelcomingText {
+    z-index: 3;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 700px;
+    align-items: center;
+}
+.WelcomingText h1 {
+    z-index: 3;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    margin:0;
+    width: 600px;
+    font-size:70px;
+    color: var(--secondary-color);
+    left: 240px;
+
+}
+.WelcomingText h1 span {
+    color:#000000
+}
+.WelcomingText p {
+    font-size: 1.2em;
+    font-weight: 600;
+    
+
+}
+.learn_more {
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.learn_more i {
+    margin-left: 10px;
+    font-size: 1.4em;
+}
+
+.arrow_bottom i {
+    font-size: 2.3em;
+}

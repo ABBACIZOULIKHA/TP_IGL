@@ -1,0 +1,43 @@
+.sectionchoose {
+    margin: 0px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 40em;
+ 
+}
+
+.textChoose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    
+}
+.textChoose h1  {
+    align-items: baseline;
+    height: auto;
+    align-self: flex-start;
+    font-size: 2.5em;
+    font-weight: 500 ; 
+}
+
+.whyuchoose{
+    font-size: 20px;
+    transform: translateX(-150%);
+    transition: 2s ease;
+    opacity: 0;
+    display: none;
+
+}
+.newwhyuchoose  {
+    transform: translateX(0%);
+    opacity: 1;
+    display: block;
+}
+
+.sectionchoose img {
+    height: 300px ;
+    width : 316px ; 
+}

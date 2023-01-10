@@ -1,0 +1,13 @@
+.userText {
+    display: flex ;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+}
+.userText h1 {
+    justify-self: flex-start;
+    align-self: flex-start;
+    font-size:2.5em;
+    font-weight: 400;
+
+}

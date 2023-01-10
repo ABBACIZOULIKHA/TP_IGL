@@ -1,0 +1,33 @@
+
+
+
+
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+@layer base {
+  body {
+    
+  }
+
+  .dropdown {
+    @apply w-full max-w-[296px] cursor-pointer;
+  }
+
+  .dropdown-btn {
+    @apply flex h-[64px] items-center px-[18px] border rounded-lg;
+  }
+
+  .dropdown-icon-primary {
+    @apply text-2xl mr-[18px] text-violet-700;
+  }
+
+  .dropdown-icon-secondary {
+    @apply text-2xl text-violet-700 ml-auto;
+  }
+
+  .dropdown-menu {
+    @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg;
+  }
+
+}

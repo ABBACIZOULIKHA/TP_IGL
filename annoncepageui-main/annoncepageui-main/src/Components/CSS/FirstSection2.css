@@ -1,0 +1,156 @@
+ :root {
+    --primary-color : #000000;
+    --secondary-color : #424baa ; 
+  }
+   
+
+
+
+.ImageContact{
+    display: flex;
+    flex-direction: row;
+}
+.ImagesName{
+    display: flex;
+    flex-direction: column;
+}
+.TitreInfo {
+    display: flex;
+    flex-direction: column;
+}
+.TitreInfo h1 {
+    font-size: 1.8em;
+    margin: 20px;
+}
+.TitreInfo div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.TitreInfo div p {
+    color: var(--secondary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 20px;
+}
+.ImagesName p {
+    color: var(--secondary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.ImagesAnnonce {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: #000000 3px solid;
+    border-radius: 5%;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.ImagesAnnonce img {
+    width: 700px;
+    height: 400px;
+    margin: 40px;
+}
+.ContactUser {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px 10px 50px;
+}
+.InputTextUser {
+    display: flex;
+    flex-direction: column;
+    border: white 2px solid ;
+    margin-left:20px ;
+    border-radius: 5%;
+}
+.InputTextUser textarea {
+display: flex;
+flex-direction: column;
+border: white 0px;
+padding: 10px;
+resize: none;
+
+}
+.button {
+    background-color: var(--secondary-color);
+    color: white;
+    width: 150px;
+    height: 60px;
+    border: solid 1px black;
+    border-radius: 20%;
+    transition: 0.2s ease;
+    cursor: pointer;
+    font-size:1.2em;
+    font-weight: 600;
+}
+.button:hover {
+    background-color: #424baa;
+}
+.ButtonUser {
+    display: flex;
+    flex-direction: row;
+    margin: 30px 10px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    justify-self: flex-end;
+    cursor: pointer;
+
+}
+.report:hover p   {
+color: black;
+}.report:hover i  {
+    color: black;
+    }
+.ButtonUser p {
+    align-self: center;
+    margin:5px ; 
+    color: grey;
+    font-size: 1.3em;
+}
+.ButtonUser i {
+    align-self: center;
+    font-size: 2em;
+    color: grey;
+}
+.report {
+    margin-left: 20px;
+    display: flex;
+    width: 20%;
+    flex-direction: row;
+    
+}
+
+
+
+/* Second Section  */
+
+
+
+.SecondSection2{
+display: flex;
+flex-direction: column;
+margin: 40px 50px;
+}
+.SecondSection2 h1 {
+    font-size: 1.9em;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+.SecondSection2 h1::after{
+
+    content: '';
+    display: block;
+    background-color: var(--secondary-color);
+    width: 0%;
+    height: 3px;
+    transition: 0.5s ease;
+}
+.SecondSection2 h1:hover::after {
+    width: 100%;
+}

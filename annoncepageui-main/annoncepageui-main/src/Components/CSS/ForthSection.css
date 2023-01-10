@@ -1,0 +1,129 @@
+.Forthsection {
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+}
+.Forthsection h1  {
+    font-size: 2em;
+}
+.Forthsection p{
+    margin: 40px;
+
+}
+.FirstImages {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px;
+    justify-content: space-around;
+}
+.FirstImages img {
+    height: 400px;
+    width: 300px;
+    border : 2px black solid; 
+    border-radius: 5%;
+}
+.SecondImages {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin-bottom: 40px;
+}
+
+.SecondImages img {
+    height: 400px;
+    width: 300px;
+    border : 2px black solid; 
+    border-radius: 5%;
+}
+footer {
+    background-color: black;
+    color:white ; 
+    display: flex ;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 ;
+    height: 100%;
+}
+.logo_info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 15%;
+}
+.logo_info h3 {
+    font-weight: 600;
+    font-size: 1.8em;
+}
+.logo_info ul {
+    display: flex;
+    flex-direction: column;
+}
+.logo_info ul li {
+    margin: 10px;
+     cursor: pointer;
+}
+.twitted_by{
+    width: 20%;
+    margin:0 150px ;
+}
+.twitted_by p {
+    font-size: 0.7em;
+}
+.recherche_part {
+    display: flex;
+    flex-direction: column;
+    margin-left:40px;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.recherche {
+    width: 300px;
+    background-color: aliceblue;
+    height: 3.5em;
+    border: 1px solid white;
+    border-radius: 20%;
+}
+.recherche_stuffs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.recherche_stuffs label {
+    margin-right: 10px;
+}
+.recherche_part button {
+    height: 3.5em;
+    display: inline-block;
+    width: 50px;
+    color: white;
+    background-color: blue;
+    margin-left: 10px;
+}
+.contact {
+    display: flex;
+    align-self: center    ;
+    flex-direction: column;
+    margin: ;
+    width: 100%;
+}
+.contact h3 {
+    font-size: 1.5em;
+}
+.contact_us {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+}
+.contact_us i {
+    font-size: 2em;
+}
