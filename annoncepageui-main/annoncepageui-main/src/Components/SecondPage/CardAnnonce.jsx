@@ -9,7 +9,7 @@ const CardAnnonce = (props) => {
       <img src={imgannonce} alt="" />
       <div className="localisation_price_card">
         <div>{props.annance.commune}</div>
-        <div>{props.annance.prix}</div>
+        <div>{props.annance.prix} DA</div>
       </div>
 
       <div className="etat_date_card">
