@@ -1,22 +1,32 @@
 import React from 'react'
 import CardAnnonce from '../SecondPage/CardAnnonce'
 import '../CSS/AnnoncePage1.css'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
-const AnnoncesScreen = () => {
+function AnnoncesScreen(){
+  
+   const [Annances,setAnnacses]=useState([])
+  
+
+   useEffect(()=> {
+    fetchData('http://127.0.0.1:8000/annance/') ;
+    
+   }) ;
+
+   function fetchData(baseurl){
+   fetch(baseurl)
+   .then(response => response.json())
+   .then((data) => {
+       setAnnacses(data.results) ;
+      }) ;
+  }
   return (
-    <div className="AnnoncesC">
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
-      <CardAnnonce />
+    <div classNameName="AnnoncesC">
+      { 
+      Annances.map((annance) => <CardAnnonce annance={annance} />)
+      }
+
     </div>
   )
 }
