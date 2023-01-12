@@ -1,0 +1,165 @@
+.PageAnnonces{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AnnonceHeader{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.AnnonceHeader .AnnonceHeader_PM{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+    width: 10%;
+}
+.AnnonceHeader_PM i{
+font-size: 1.5em;
+background-color: white;
+padding: 20px;
+border-radius: 20%;
+cursor: pointer;
+transition: 0.5s ease;
+}
+.AnnonceHeader i:hover {
+    background-color: black;
+    color: white;
+
+}
+.AddButton{
+    background-color: #31387C;
+    border: 1px solid #31387C;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    padding: 10px 20px;
+    margin: 10px;
+}
+.AddButton p {
+    font-size: 2em;
+    margin-right: 10px;
+}
+.AddButton i {
+    font-size: 1.5em;
+
+}
+
+
+.AnnoncesIF {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width:100%; 
+    justify-content: space-between;
+}
+.AnnoncesIF h1 {
+    align-self: center;
+    width: 700px;
+   margin-left: 10%;
+    font-size: 4.5em;
+}
+.AnnoncesIF span {
+    color: #31387C;
+}
+
+
+.AnnoncesC {
+    display: flex;
+    flex-direction: row;
+   justify-content: space-evenly;
+   margin: 10% 10%;
+    flex-wrap: wrap;
+}
+
+
+.FilterItems {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    width: 90%;
+}
+.FilterItems .FilterThis {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    width: 10%;
+    border: 1px solid black;
+    border-radius: 20%;
+    justify-content: space-evenly;
+}
+
+.FilterThis p {
+
+}
+.FilterThis span {
+    font-size: 0.7em;
+    color: grey;
+}
+.FilterThis i {
+    color: #31387C;
+}
+.SearchAnnonce{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    margin:40px;
+
+}
+.SearchAnnonce input {
+    width: 50%;
+    padding: 10px 40px;
+}
+.SearchAnnonce i {
+    position: relative  ;
+    font-size: 1.3em;
+    align-self: center;
+    margin-right: 10px;
+}
+.ButtonSearch {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    background-color: #31387C;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20%;
+    padding: 30px 50px;
+}
+
+.AccountList{
+    position: absolute;
+    display: block;
+    background-color: rgb(194, 194, 194);
+    max-width: 360px;
+    max-height: 500px;
+    border: 1px black solid;
+    border-radius: 5%;
+    
+}
+.AccountList li  {
+    padding: 10px;
+    font-size: 1em;
+    z-index: 4;
+}
+.FindAnnoncesText{
+    justify-self: center;
+    align-self: center;
+    margin-top: 50px;
+    font-size: 3.5em
+}

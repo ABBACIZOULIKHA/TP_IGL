@@ -1,0 +1,135 @@
+.Profile {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.ProfilePageH {
+    background-color: rgb(226, 220, 220);
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    width: 15%;
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 10px 100px 0 0;
+}
+.ProfilePageH:hover{
+    background-color: rgb(201, 194, 194);
+}
+.ProfilePageH p {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.ProfilePageH p::after {
+    content: '';
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    display: block;
+}
+
+
+.ProfileInformations{
+    display: flex;
+    flex-direction: column;
+}
+.ProfileInformations  h1 {
+font-size: 2em;
+align-self: flex-start;
+margin-bottom: 5px;
+}
+.ProfileInformations p{
+    font-size: 0.8em;
+    color: grey;
+}
+.PhotoProfile {
+    display: flex;
+    flex-direction: column;
+
+}
+.PhotoProfile p {
+    font-size: 1.2em;
+    color: black;
+}
+.ImageProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ImageProfile div {
+    width: 200px ;
+    height: 200px;
+    border: 1px solid transparent;
+    background-color: rgb(190, 186, 186);
+    border-radius: 50%;
+    }
+
+.ImageProfile button {
+    margin-left: 50px;
+    background-color: rgb(204, 204, 204);
+    font-size: 1.2em;
+    border: 1px solid transparent;
+    border-radius: 20%;
+    padding: 10px 20px;
+    width: 100px ;
+    height: 50px;
+}
+.WritingInformations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60%;
+}
+.Info {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 5%;  
+    margin: 50px;
+    
+}   
+.Info p {
+    font-size: 1.2em;
+    color: black;
+}
+.Info input {
+    border: 2px solid black; 
+    border-radius: 5%;
+    padding: 10px 40px;
+}
+.About p {
+    font-size: 1.2em;
+    color: black;
+}
+.About {
+    width: 60%;
+}
+.About textarea{
+    resize: none;
+    width: 100%;
+     padding: 10px;
+     border: 2px solid black;
+}
+.Save{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 40%;
+    bottom: 0;
+    margin: 50px ;
+}
+.Save button {
+    border: 1px solid transparent;
+    background-color: rgb(207, 200, 200);
+    padding: 10px 30px;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 8px;    background-color: rgb(235, 231, 227);
+    transition: 0.3s ease;
+}
+.Save button:hover {
+    background-color: grey;
+}

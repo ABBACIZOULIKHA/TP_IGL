@@ -1,0 +1,105 @@
+
+.AddAnnonce {
+    display: flex;
+    flex-direction: column;
+   
+}
+.AddAnnoncediv {
+    margin: 80px;
+}
+.Text
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.AddAnnonce h1 {
+    font-size: 3em;
+
+  
+}
+.AddAnnonce hr  {
+ width: 40%;
+background-color: rgb(0, 0, 0);
+height: 3px;
+}
+
+.InformationsAnnonce form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 40px;
+}
+
+.InformationsAnnonce form div {
+    display: flex;
+    flex-direction: column;
+width: 30%;    
+margin: 40px;
+
+}
+.InformationsAnnonce form div label {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+.InformationsAnnonce form div input {
+    border: 3px solid black ;
+    padding: 20px;
+    border-radius: 0%;
+}
+.AttacheImage {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 150px;
+    border: 1px dotted black;
+    align-items: center;
+    padding: 80px;
+}
+.AttacheImage p {
+    font-size: 1.3em;
+    font-weight: 500;
+    
+}
+.AttacheImage button {
+    background-color: rgb(202, 200, 200);
+    padding: 20px 30px;
+    font-size: 1.3em;
+    border-radius: 20%;
+    transition: 0.5s ease;
+}
+.AttacheImage button:hover {
+    background-color: grey;
+}
+.divDescription {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.divDescription p {
+    font-size: 1.3em;
+    font-weight: 500;
+    
+}
+.AddDescription {
+    margin-top: 20px;
+    border: 3px solid black;
+    width: 90%;
+    resize: none;
+    padding: 10px;
+}
+.buttonPublish {
+    background-color: rgb(80, 80, 155);
+    border-radius: 10%;
+    padding: 20px 50px;
+    font-size: 1.5em;
+    color: white;
+    align-self: flex-end;
+    margin-right: 20px;
+    transition: 0.3s ease;
+    margin-bottom: 60px;
+}
+
+.buttonPublish:hover{
+    background-color: rgb(16, 16, 87);
+}
