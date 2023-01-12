@@ -1,13 +1,16 @@
-from django.urls import path
-from app_annance.views import index, editcompte, add, annanceDeposé, utilisateurs, detail
+from django.urls import path, include
+from rest_framework import routers
+from . import views
 
+# router = routers.DefaultRouter()
+# router.register(r'annance', views.AnnanceViewSet)
 urlpatterns = [
-    path('', index, name='index'),
-    path('add', add, name='add'),
-    path('annanceDeposé', annanceDeposé, name="annanceDeposé"),
-    path('editcompte', editcompte, name="editcompte"),
-    path('utilisateurs', utilisateurs, name="utilisateurs"),
-    path("<int:idan>/", detail, name="detail"),
-    path('annanceDeposé', annanceDeposé, name="annanceDeposé")
-
+    # path('', include(router.urls)),
+    path('annance/', views.AnnanceList.as_view()),
+    path('annance/<int:pk>/', views.AnnanceDetail.as_view()),
+    path('profile/', views.ProfileList.as_view()),
+    path('profile/<int:pk>/', views.ProfileDetail.as_view()),
+    path('user/', views.UserList.as_view()),
+    path('user/<int:pk>/', views.UserDetail.as_view()),
+    path('annancephoto/<int:pk>/', views.AnnancePhoto.as_view()),
 ]

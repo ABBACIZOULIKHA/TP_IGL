@@ -1,96 +1,67 @@
 from django.shortcuts import render
 from .models import Annance, Photo, User, Profile, Wilaya
 from django.core.paginator import Paginator
+import folium
+import geocoder
+from rest_framework import generics, pagination
+from rest_framework import permissions
+from .serializers import AnnanceSerializer, ProfileSerializer, UserSerializer, PhotoSerializer
+from . import models
 # Create your views here.
 
 
-def index1(request):
-    annance_object = Annance.objects.all()
-    item_name = request.GET.get('item-name')
-    if item_name != '' and item_name is not None:
-        annance_object = Annance.objects.filter(
-            prix__icontains=item_name).values
-
-    paginator = Paginator(annance_object, 4)
-    page = request.GET.get('page')
-    annance_object = paginator.get_page(page)
-    return render(request, 'app_annance/index.html', {'annance_object': annance_object})
+# class AnnanceViewSet(viewsets.ModelViewSet):
+#     serializer_class = AnnanceSerializer
+#     queryset = Annance.objects.all().order_by('-date')
 
 
-def index(request):
-    annance_object = Annance.objects.all()
-    item_name = request.GET.get('item_name')
-    if item_name != '' and item_name is not None:
-        annance_object = Annance.objects.filter(titre__icontains=item_name)
-    paginator = Paginator(annance_object, 4)
-    page = request.GET.get('page')
-    annance_object = paginator.get_page(page)
-
-    photo_object = Photo.objects.all()
-    return render(request, 'app_annance/index.html', {'annance_object': annance_object, 'photo_object': photo_object})
+class AnnanceList(generics.ListCreateAPIView):
+    queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
+    pagination_class = pagination.LimitOffsetPagination
 
 
-def add(request):
-    return render(request, 'app_annance/add.html')
+class AnnanceDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
 
 
-def MonCompte(request):
-    return render(request, 'app_annance/MonCompte.html')
+class AnnancePhoto(generics.ListAPIView):
+    #queryset = models.Annance.objects.all()
+    serializer_class = PhotoSerializer
+
+    def get_queryset(self):
+        annance_id = self.kwargs['pk']
+        #annance = models.Annance.objects.get(id=annance_id)
+        photos = models.Photo.objects.filter(idAnnance=annance_id)
+        return photos
 
 
-def utilisateurs(request):
-    return render(request, 'app_annance/utilisateurs.html')
+class ProfileList(generics.ListCreateAPIView):
+    queryset = models.Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 
-def editcompte(request):
-    return render(request, 'app_annance/editcompte.html')
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 
-def annanceDeposé(request):
-    return render(request, 'app_annance/annanceDeposé.html')
+class UserList(generics.ListCreateAPIView):
+    queryset = models.User.objects.all()
+    serializer_class = UserSerializer
 
 
-def detail(request, idan):
-    annance2_objects = Annance.objects.get(id=idan)
-    photo_objects = Photo.objects.get(idAnnance=idan)
-    annanceur_objects = User.objects.get(username=annance2_objects.idAnnanceur)
-    return render(request, 'app_annance/detail.html', {'annance2_objects': annance2_objects, 'photo_objects': photo_objects, 'annanceur_objects': annanceur_objects})
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.User.objects.all()
+    serializer_class = UserSerializer
 
 
-def utilisateurs(request):
-    user_objects = Profile.objects.all()
-    return render(request, 'app_annance/utilisateurs.html', {'user_objects': user_objects})
+class PhotoList(generics.ListCreateAPIView):
+    queryset = models.Photo.objects.all()
+    serializer_class = PhotoSerializer
 
 
-def annanceDeposé(request):
-
-    wilaya_objects = Wilaya.objects.all()
-
-    if request.method == "POST":
-        titre = request.POST.get('titre')
-        categorie = request.POST.get('categorie')
-        type = request.POST.get('type')
-        surface = request.POST.get('surface')
-        prix = request.POST.get('prix')
-        wilaya = request.POST.get('wilaya')
-        commune = request.POST.get('commune')
-        adresse = request.POST.get('adresse')
-        photo = request.POST.get('photo')
-        description = request.POST.get('description')
-
-        # email = request.POST.get('email')
-        # username = ''
-        # postUser = User(email='email', username='username')
-        # postUser.save()
-        # id = postUser.id
-
-        wilaya1 = Wilaya.objects.get(nom=wilaya)
-
-        postAnnance = Annance(titre='titre', categorie='categorie', type='type', surface='surface',
-                              prix='prix', wilaya='wilaya1', commune='commune', adresse='adresse', description='description')
-
-        postAnnance.save()
-        idAnnance = postAnnance.id
-        postPhoto = Photo(photo='url', idAnnance='idAnnance')
-        postPhoto.save()
-    return render(request, 'app_annance/annanceDeposé.html', {'wilaya_objects': wilaya_objects})
+class PhotoAnnance(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Photo.objects.all()
+    serializer_class = PhotoSerializer

@@ -46,7 +46,7 @@ class Annance(models.Model):
         return self.titre
 
     class Meta:
-        ordering = ['date']
+        ordering = ['-date']
 
 
 class Profile(models.Model):
