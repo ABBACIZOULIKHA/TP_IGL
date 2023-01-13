@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdd_tp_igl',
+        'NAME': 'tp_igl_bdd',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

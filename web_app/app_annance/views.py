@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Annance, Photo, User, Profile, Wilaya
+from .models import Annance, Photo, User, Profile
 from django.core.paginator import Paginator
 import folium
 import geocoder

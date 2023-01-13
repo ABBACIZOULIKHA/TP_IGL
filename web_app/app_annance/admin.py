@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Annance, Profile, Photo, Message, User, Wilaya, Commune
+from .models import Annance, Profile, Photo, Message, User
 
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin
@@ -24,26 +24,16 @@ class TodoUserAdmin(UserAdmin):
 
 
 class AdminPhoto(admin.ModelAdmin):
-    list_display = ('url', 'idAnnance')
+    list_display = ('image', 'idAnnance')
 
 
 class AdminMessage(admin.ModelAdmin):
     list_display = ('userSource', 'userDestination')
 
 
-class AdminWilaya(admin.ModelAdmin):
-    list_display = ('id', 'nom',)
-
-
-class AdminCommune(admin.ModelAdmin):
-    list_display = ('nom', 'idwilaya')
-
-
 admin.site.register(Annance, AdminAnnance)
 admin.site.register(Profile, AdminProfil)
 admin.site.register(Photo, AdminPhoto)
 admin.site.register(Message, AdminMessage)
-admin.site.register(Wilaya, AdminWilaya)
-admin.site.register(Commune, AdminCommune)
 admin.site.unregister(User)
 admin.site.register(User, TodoUserAdmin)

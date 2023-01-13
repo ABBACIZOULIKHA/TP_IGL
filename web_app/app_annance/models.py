@@ -4,21 +4,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 
-class Wilaya(models.Model):
-    nom = models.CharField(max_length=60)
-
-    def __str__(self):
-        return self.nom
-
-
-class Commune(models.Model):
-    nom = models.CharField(max_length=60)
-    idwilaya = models.IntegerField()
-
-    def __str__(self):
-        return self.nom
-
-
 class Annance(models.Model):
     CATEGORIE = (
         ('Vente', 'Vente'),
@@ -34,8 +19,7 @@ class Annance(models.Model):
     surface = models.CharField(max_length=200)
     description = models.TextField(null=True)
     prix = models.IntegerField(null=True)
-    wilaya = models.OneToOneField(
-        Wilaya, on_delete=models.CASCADE, related_name='Annance')
+    wilaya = models.CharField(max_length=50)
     commune = models.CharField(max_length=50)
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
@@ -54,7 +38,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name='Profile')
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
-    telephone = PhoneNumberField()
+    telephone = models.CharField(max_length=50)
     adresse = models.CharField(max_length=200)
 
     def __str__(self):
@@ -63,9 +47,9 @@ class Profile(models.Model):
 
 class Photo(models.Model):
 
-    url = models.URLField(max_length=200)
+    image = models.ImageField(upload_to='annonce_imgs/', null=True)
     idAnnance = models.ForeignKey(
-        Annance, null=True, on_delete=models.SET_NULL)
+        Annance, null=True, on_delete=models.SET_NULL, related_name='annonce_imgs')
 
 
 class Message(models.Model):

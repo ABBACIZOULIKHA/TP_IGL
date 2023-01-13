@@ -26,7 +26,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
-        fields = ('id', 'url', 'idAnnance')
+        fields = ('id', 'image', 'idAnnance')
 
     def __init__(self, *args, **kwargs):
         super(PhotoSerializer, self).__init__(*args, **kwargs)

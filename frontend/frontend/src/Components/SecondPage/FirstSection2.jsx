@@ -28,7 +28,7 @@ const FirstSection2 = () => {
           <div className="TitreInfo">
             <h1>{annanceData.titre}</h1>
             <div>
-              <p> localisation : {annanceData.commune} ,{annanceData.adresse}</p>
+              <p> localisation : {annanceData.wilaya},{annanceData.commune} ,{annanceData.adresse}</p>
               <p>Prix : {annanceData.prix}DA</p>
             </div>
           </div>

@@ -27,9 +27,9 @@ const CardAnnonce = (props) => {
     <Link to ={'/contactuser/'+props.annance.id}>     
     <div className="CardAnnonce">
       <h2>{props.annance.titre}</h2>
-      <img src={photo.url} alt="" />
+      <img src={photo.image} alt="" />
       <div className="localisation_price_card">
-        <div>{props.annance.commune}</div>
+        <div>{props.annance.wilaya}</div>
         <div>{props.annance.prix} DA</div>
       </div>
 
