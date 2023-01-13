@@ -1,18 +1,35 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import annonceimg from '../../Images/AnnonceVendre.jpg'
 
 import '../CSS/FirstSection2.css'
 
 const FirstSection2 = () => {
+   const [annanceData ,setAnnacseData]=useState([]) ;
+   const {annance_id} = useParams() ;
+   
+   useEffect(()=> {
+    fetchData('http://127.0.0.1:8000/annance/'+annance_id) ;
+    
+   }) ;
+
+   function fetchData(baseurl){
+   fetch(baseurl)
+   .then(response => response.json())
+   .then((data) => {
+     setAnnacseData(data) ;
+      }) ;
+  }
+  
   return (
     <section className="">
       <div className="ImageContact">
         <div className="ImagesName">
           <div className="TitreInfo">
-            <h1>Titre de l'annonce AI</h1>
+            <h1>{annanceData.titre}</h1>
             <div>
-              <p>Localisation , commune</p>
-              <p>Prix : 11313153DA</p>
+              <p> localisation : {annanceData.commune} ,{annanceData.adresse}</p>
+              <p>Prix : {annanceData.prix}DA</p>
             </div>
           </div>
           <div className="ImagesAnnonce">
@@ -20,10 +37,10 @@ const FirstSection2 = () => {
             <img src={annonceimg} />
             <i class="fa-solid fa-arrow-right"></i>
           </div>
-          <p>Catégorie , Type</p>
+          <p> categorie :{annanceData.categorie} , type :{annanceData.type}</p>
         </div>
         <div className="ContactUser">
-          <h3>Name of the user </h3>
+          {/* <h3>{annanceData.idAnnanceur}  </h3> */}
           <div className="InputTextUser">
             <textarea
               placeholder="Enter your message"

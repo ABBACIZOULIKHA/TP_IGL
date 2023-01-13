@@ -4,14 +4,11 @@ import '../CSS/FindMoreSection.css'
 import CardAnnonce from './CardAnnonce'
 const FindMoreSection = () => {
   return (
-    <section className="FindMoreSection">
-      <h1>Find More </h1>
-
-      <div className="Annonces">
-        <CardAnnonce />
-        <CardAnnonce />
+    <div >
+        {/* <CardAnnonce />
+        <CardAnnonce /> */}
+        <h1>GOOGLE MAP LOCATION</h1>
       </div>
-    </section>
   )
 }
 

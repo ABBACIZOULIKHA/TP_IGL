@@ -54,7 +54,7 @@ function App() {
         <Routes>
           <Route exact path="/signup" element={<Singup/>}/>
           <Route exact path="/annonces" element={<Home/>}/>
-          <Route exact path="/contactuser" element={  <div><SecondHeader /><FirstSection2 />     <SecondSection2 />  <FindMoreSection /></div> }/>
+          <Route exact path='/contactuser/:annance_id' element={ <div><SecondHeader/><FirstSection2/><SecondSection2/><FindMoreSection/></div> }/>
           <Route exact path="/annonce" element = {<div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div>}/>
                 
                 <Route exact path="" element ={<div><FirstSection /><SecondSection /><ThirdSection /><ForthSection /></div>}/>
