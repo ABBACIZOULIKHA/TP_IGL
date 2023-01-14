@@ -37,6 +37,46 @@ class AnnancePhoto(generics.ListAPIView):
         return photos
 
 
+class AnnanceFiltreTitre(generics.ListAPIView):
+    #queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        Titre = self.kwargs['titre']
+        annonces = models.Annance.objects.filter(titre__icontains=Titre)
+        return annonces
+
+
+class AnnanceFiltreWilaya(generics.ListAPIView):
+    #queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        Wilaya = self.kwargs['wilaya']
+        annonces = models.Annance.objects.filter(wilaya=Wilaya)
+        return annonces
+
+
+class AnnanceFiltreCommune(generics.ListAPIView):
+    #queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        Commune = self.kwargs['commune']
+        annonces = models.Annance.objects.filter(commune=Commune)
+        return annonces
+
+
+class AnnanceFiltreType(generics.ListAPIView):
+    #queryset = models.Annance.objects.all()
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        Type = self.kwargs['type']
+        annonces = models.Annance.objects.filter(type=Type)
+        return annonces
+
+
 class ProfileList(generics.ListCreateAPIView):
     queryset = models.Profile.objects.all()
     serializer_class = ProfileSerializer

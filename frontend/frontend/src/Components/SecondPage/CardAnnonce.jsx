@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 const CardAnnonce = (props) => {
 
   const [Photos,setPhotos]=useState([])
+  const [img,setImg]=useState([])
   
 
    useEffect(()=> {
@@ -21,18 +22,27 @@ const CardAnnonce = (props) => {
    .then((data) => {
        setPhotos(data.results) ;
       }) ;
+      Photos.map((photo,i,j )=>
+      {
+        i=0 ; j=1
+        if (i==0 && j==1) { setImg(photo.image) }
+        else i=1
+      })
   }
+   
+    
+  
   return (
-    Photos.map((photo)=>
+   
     <Link to ={'/contactuser/'+props.annance.id}>     
     <div className="CardAnnonce">
       <h2>{props.annance.titre}</h2>
-      <img src={photo.image} alt="" />
+       <img src={img} alt="" />
       <div className="localisation_price_card">
         <div>{props.annance.wilaya}</div>
         <div>{props.annance.prix} DA</div>
       </div>
-
+       
       <div className="etat_date_card">
         <p>{props.annance.date}</p>
         <div>
@@ -42,7 +52,7 @@ const CardAnnonce = (props) => {
       </div>
     </div></Link>
     )
-  )
+ 
 }
 
 export default CardAnnonce

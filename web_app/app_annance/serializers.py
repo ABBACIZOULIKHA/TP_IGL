@@ -3,6 +3,7 @@ from .models import Annance, Profile, Photo, User
 
 
 class AnnanceSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Annance
         fields = ('id', 'titre', 'categorie', 'type', 'surface', 'description',

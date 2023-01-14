@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const UserBar = (open, { children }) => {
   if (open === false) return <div>hi</div>
   return (
@@ -8,7 +8,8 @@ const UserBar = (open, { children }) => {
       <hr />
       <li>Afficher les liste </li>
       <hr />
-      <li>Avoir liste d'utilisateur</li>
+      <Link to ={'/ListUsers'}> 
+      <li>Avoir liste d'utilisateur</li></Link>
       <hr />
     </ul>
   )

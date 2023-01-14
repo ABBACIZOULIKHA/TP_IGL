@@ -31,13 +31,12 @@ import PrincipalFooter from './Components/FirstPage/PrincipalFooter'
 import AnnonoceHeader from "./Components/Annoncepage1/AnnonoceHeader";
 import AnnoncePSection1 from "./Components/Annoncepage1/AnnoncePSection1";
 import AnnoncesScreen from "./Components/Annoncepage1/AnnoncesScreen";
-
-
-
-
+import ListUsers from  "./Components/Annoncepage1/ListUsers";
 import AddAnnonce from "./Components/AddAnnonce/AddAnnonce";
 
 import ProfileAccount from "./Components/ProfileAccount/ProfileAccount";
+import CardAnnonce from "./Components/SecondPage/CardAnnonce";
+import UserBar from "./Components/Annoncepage1/UserBar";
 function App() {
   return (
     <div>
@@ -55,11 +54,17 @@ function App() {
           <Route exact path="/signup" element={<Singup/>}/>
           <Route exact path="/annonces" element={<Home/>}/>
           <Route exact path='/contactuser/:annance_id' element={ <div><SecondHeader/><FirstSection2/><SecondSection2/><FindMoreSection/></div> }/>
-          <Route exact path="/annonce" element = {<div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div>}/>
+          <Route exact path='/:search/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
+          <Route exact path='/:wilaya/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
+          <Route exact path='/:commune/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
+          <Route exact path='/:type/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
+          
+          <Route exact path="/:annonce" element = {<div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div>}/>
                 
                 <Route exact path="" element ={<div><FirstSection /><SecondSection /><ThirdSection /><ForthSection /></div>}/>
                 
            <Route exact path ="/userannonce" element = {<><AnnonceDD/></>}/>
+           <Route exact path="/ListUsers" element={ <div><ListUsers/></div>} />   
         <Route exact path="/profile" element={<ProfileAccount/>}/>
           <Route exact path="/addannonce" element = {<AddAnnonce/>}/>
        {/* <Route path="/aboutus" element={<ForthSection /> } /> */}

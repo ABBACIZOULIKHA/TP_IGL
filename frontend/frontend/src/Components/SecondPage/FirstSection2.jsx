@@ -6,23 +6,33 @@ import '../CSS/FirstSection2.css'
 
 const FirstSection2 = () => {
    const [annanceData ,setAnnacseData]=useState([]) ;
+   const [photoData ,setPhotoData]=useState([]) ;
    const {annance_id} = useParams() ;
    
    useEffect(()=> {
-    fetchData('http://127.0.0.1:8000/annance/'+annance_id) ;
-    
+    fetchData1('http://127.0.0.1:8000/annance/'+annance_id) ;
+    fetchData2('http://127.0.0.1:8000/annancephoto/'+annance_id) ;
    }) ;
 
-   function fetchData(baseurl){
+   function fetchData1(baseurl){
    fetch(baseurl)
    .then(response => response.json())
    .then((data) => {
      setAnnacseData(data) ;
       }) ;
   }
+  function fetchData2(baseurl){
+    fetch(baseurl)
+    .then(response => response.json())
+    .then((data) => {
+      setPhotoData(data.results) ;
+       }) ;
+       
+   }
   
   return (
     <section className="">
+ 
       <div className="ImageContact">
         <div className="ImagesName">
           <div className="TitreInfo">
@@ -32,11 +42,16 @@ const FirstSection2 = () => {
               <p>Prix : {annanceData.prix}DA</p>
             </div>
           </div>
-          <div className="ImagesAnnonce">
+          {
+            photoData.map((photo)=>
+            <div className="ImagesAnnonce">
             <i class="fa-solid fa-arrow-left"></i>
-            <img src={annonceimg} />
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
+               <img src={photo.image} />
+              <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            )
+          }    
+      
           <p> categorie :{annanceData.categorie} , type :{annanceData.type}</p>
         </div>
         <div className="ContactUser">
