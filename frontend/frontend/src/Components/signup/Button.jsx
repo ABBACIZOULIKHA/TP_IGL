@@ -6,7 +6,7 @@ export default function Button({ content }) {
   return (
     <>
       <StyledButton>
-        <Link to="/annonces">{content}</Link>
+        <Link to="/annonce">{content}</Link>
       </StyledButton>
     </>
   )

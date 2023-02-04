@@ -8,8 +8,8 @@ const Footer = () => {
         <h3>Meftahek</h3>
         <ul>
           <li>Why you choose us</li>
-          <li>Why you choose us</li>
-          <li>Why you choose us</li>
+          {/* <li>Why you choose us</li>
+          <li>Why you choose us</li> */}
         </ul>
       </div>
       <div className="twitted_by">

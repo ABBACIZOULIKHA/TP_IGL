@@ -1,7 +1,5 @@
 import React from 'react'
-import imgannonce from '../../Images/AnnonceVendre.jpg'
 import '../CSS/FindMoreSection.css'
-import CardAnnonce from './CardAnnonce'
 const FindMoreSection = () => {
   return (
     <div >

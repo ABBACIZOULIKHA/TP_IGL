@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const UserBar = (open, { children }) => {
-  if (open === false) return <div>hi</div>
+  
   return (
     <ul className="AccountList">
-      <li>Parametre de compte</li>
+      <Link to ={'/MonCompte'}> 
+      <li>Parametre de compte</li></Link>
       <hr />
-      <li>Afficher les liste </li>
+      <Link to ={'/MyAnnonces'}> 
+      <li>list Annonce déposer</li></Link>
       <hr />
       <Link to ={'/ListUsers'}> 
       <li>Avoir liste d'utilisateur</li></Link>

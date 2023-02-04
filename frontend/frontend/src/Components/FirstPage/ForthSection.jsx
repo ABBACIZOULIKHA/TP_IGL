@@ -3,7 +3,7 @@ import img1 from '../../Images/AnnonceVendre.jpg'
 import img2 from '../../Images/AnnonceVendre.jpg'
 import img3 from '../../Images/AnnonceVendre.jpg'
 import img4 from '../../Images/AnnonceVendre.jpg'
-import Footer from '../AnnoncePage/Footer'
+
 import './test'
 import '../CSS/ForthSection.css'
 import PrincipalFooter from './PrincipalFooter'

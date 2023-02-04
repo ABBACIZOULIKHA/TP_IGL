@@ -1,11 +1,7 @@
 from django.shortcuts import render
-from .models import Annance, Photo, User, Profile
-from django.core.paginator import Paginator
-import folium
-import geocoder
 from rest_framework import generics, pagination
-from rest_framework import permissions
-from .serializers import AnnanceSerializer, ProfileSerializer, UserSerializer, PhotoSerializer
+
+from .serializers import AnnanceSerializer, ProfileSerializer, PhotoSerializer, MessageSerializer
 from . import models
 # Create your views here.
 
@@ -31,19 +27,38 @@ class AnnancePhoto(generics.ListAPIView):
     serializer_class = PhotoSerializer
 
     def get_queryset(self):
-        annance_id = self.kwargs['pk']
-        #annance = models.Annance.objects.get(id=annance_id)
-        photos = models.Photo.objects.filter(idAnnance=annance_id)
+        id = self.kwargs['pk']
+        annance = models.Annance.objects.get(id=id)
+        titre = annance.titre
+        photos = models.Photo.objects.filter(titreAnnance=titre)
         return photos
 
 
 class AnnanceFiltreTitre(generics.ListAPIView):
-    #queryset = models.Annance.objects.all()
     serializer_class = AnnanceSerializer
 
     def get_queryset(self):
         Titre = self.kwargs['titre']
         annonces = models.Annance.objects.filter(titre__icontains=Titre)
+        return annonces
+
+
+class annancefiltreperiode(generics.ListAPIView):
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        date = self.kwargs['periode']
+        annonces = models.Annance.objects.filter(date__icontains=date)
+        return annonces
+
+
+class AnnanceAnnanceur(generics.ListAPIView):
+    serializer_class = AnnanceSerializer
+
+    def get_queryset(self):
+        email = self.kwargs['email']
+        emailAnnanceur = models.Profile.objects.get(email=email)
+        annonces = models.Annance.objects.filter(EmailAnnanceur=emailAnnanceur)
         return annonces
 
 
@@ -87,14 +102,13 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileSerializer
 
 
-class UserList(generics.ListCreateAPIView):
-    queryset = models.User.objects.all()
-    serializer_class = UserSerializer
+class ProfileParEmail(generics.ListAPIView):
+    serializer_class = ProfileSerializer
 
-
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.User.objects.all()
-    serializer_class = UserSerializer
+    def get_queryset(self):
+        email = self.kwargs['email']
+        profile = models.Profile.objects.filter(email=email)
+        return profile
 
 
 class PhotoList(generics.ListCreateAPIView):
@@ -105,3 +119,43 @@ class PhotoList(generics.ListCreateAPIView):
 class PhotoAnnance(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Photo.objects.all()
     serializer_class = PhotoSerializer
+
+
+class PhotoFiltreTitreAnnance(generics.ListAPIView):
+    serializer_class = PhotoSerializer
+
+    def get_queryset(self):
+        Titre = self.kwargs['titre']
+        photos = models.Photo.objects.filter(titreAnnance=Titre)
+        return photos
+
+
+class MessageDetail(generics.ListAPIView):
+
+    serializer_class = MessageSerializer
+
+    def get_queryset(self):
+        UserDestination = self.kwargs['userDestination']
+        messages = models.Message.objects.filter(
+            userDestination=UserDestination).update(status="read")
+        return models.Message.objects.filter(
+            userDestination=UserDestination)
+
+
+class MessageList(generics.ListCreateAPIView):
+    queryset = models.Message.objects.all()
+    serializer_class = MessageSerializer
+
+
+class MessageFiltreStatus(generics.ListAPIView):
+    serializer_class = MessageSerializer
+
+    def get_queryset(self):
+        status = self.kwargs['status']
+        messages = models.Message.objects.filter(status=status)
+        return messages
+
+
+class MessageDetail2(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Message.objects.all()
+    serializer_class = MessageSerializer

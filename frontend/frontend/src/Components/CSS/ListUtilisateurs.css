@@ -1,0 +1,22 @@
+.ListAsection{
+    display: flex;
+    flex-direction: column;
+    margin:  20px 0 ;
+}
+.ListBsection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+    background-color: rgb(249, 249, 249);
+}
+.ElementList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: rgb(231, 228, 228);
+    height: 50px;
+    margin: 20px 5px;
+}

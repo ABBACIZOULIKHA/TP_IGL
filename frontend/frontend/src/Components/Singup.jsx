@@ -1,7 +1,6 @@
 import React, { components } from 'react'
 import styled from 'styled-components'
 import Button from './signup/Button'
-import Icon from './signup/Icon'
 import Input from './signup/Input'
 import { BsGoogle } from 'react-icons/bs'
 import { Link } from 'react-router-dom'

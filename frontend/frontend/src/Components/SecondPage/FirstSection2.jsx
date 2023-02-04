@@ -1,17 +1,28 @@
+import axios from 'axios'
 import React, { useState , useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import annonceimg from '../../Images/AnnonceVendre.jpg'
-
 import '../CSS/FirstSection2.css'
 
 const FirstSection2 = () => {
+   const [succes,setsucces]=useState([]) ;
    const [annanceData ,setAnnacseData]=useState([]) ;
    const [photoData ,setPhotoData]=useState([]) ;
+   const [userData ,setuserData]=useState([]) ;
    const {annance_id} = useParams() ;
+   const [mesgData,setmesgData]=useState({
+    contenu:'',
+     userSource:'',
+     userDestination:'',
+     date:'',
+     status:'',
+     titreAnnance:'' ,
+   }) ;
    
    useEffect(()=> {
     fetchData1('http://127.0.0.1:8000/annance/'+annance_id) ;
     fetchData2('http://127.0.0.1:8000/annancephoto/'+annance_id) ;
+   
    }) ;
 
    function fetchData1(baseurl){
@@ -26,10 +37,44 @@ const FirstSection2 = () => {
     .then(response => response.json())
     .then((data) => {
       setPhotoData(data.results) ;
+      
        }) ;
        
    }
   
+   const handleChange=(event)=>{
+    setmesgData({
+      ...mesgData,
+      [event.target.name]:event.target.value
+    })
+  }
+  
+  const formSubmit =()=>{
+    var today = new Date();
+    setsucces("sent successfully");
+    const _formData=new FormData();
+     _formData.append('userSource',localStorage.getItem("email"));
+     _formData.append('userDestination',annanceData.EmailAnnanceur)
+     _formData.append('date',today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate())
+     _formData.append('contenu',mesgData.contenu)
+     _formData.append('status',"unread")
+     _formData.append('titreAnnance',annanceData.titre)
+    try{
+      axios.post('http://127.0.0.1:8000/message/',_formData,{
+        headers:{
+          'content-type':'multipart/form-data'
+        } 
+      })
+      .then((res)=> {
+        console.log(res.data);
+      });
+    }catch(error){
+      console.log(error) ;
+    }
+  }
+
+
+
   return (
     <section className="">
  
@@ -39,7 +84,7 @@ const FirstSection2 = () => {
             <h1>{annanceData.titre}</h1>
             <div>
               <p> localisation : {annanceData.wilaya},{annanceData.commune} ,{annanceData.adresse}</p>
-              <p>Prix : {annanceData.prix}DA</p>
+              
             </div>
           </div>
           {
@@ -50,14 +95,18 @@ const FirstSection2 = () => {
               <i class="fa-solid fa-arrow-right"></i>
               </div>
             )
-          }    
-      
-          <p> categorie :{annanceData.categorie} , type :{annanceData.type}</p>
+          }       
+           <p>Prix : {annanceData.prix}DA </p>
+           <p> Surface :{annanceData.surface} m²</p>
+          <p>Categorie :{annanceData.categorie}</p>
+           <p>Type :{annanceData.type}</p>
         </div>
         <div className="ContactUser">
           {/* <h3>{annanceData.idAnnanceur}  </h3> */}
           <div className="InputTextUser">
             <textarea
+              onChange={handleChange}
+              name='contenu'
               placeholder="Enter your message"
               rows="30"
               cols="70"
@@ -66,12 +115,10 @@ const FirstSection2 = () => {
             ></textarea>
           </div>
           <div className="ButtonUser">
-            <div className="report">
-              <p>Report</p>
-              <i class="fa-light fa-exclamation"></i>
-            </div>
-            <button className="button">send</button>
+          
+            <button onClick={formSubmit} type='button' className="button">send</button>
           </div>
+          <button type="button" class="btn btn-success">{succes}</button>
         </div>
       </div>
     </section>

@@ -1,7 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
-from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
+
+
+class Profile(models.Model):
+    nom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
+    telephone = models.CharField(max_length=50)
+    adresse = models.CharField(max_length=200)
+    email = models.EmailField(max_length=254, null=True, unique=True)
+
+    def __str__(self):
+        return self.email
 
 
 class Annance(models.Model):
@@ -23,8 +32,7 @@ class Annance(models.Model):
     commune = models.CharField(max_length=50)
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
-    idAnnanceur = models.ForeignKey(
-        User, null=True, on_delete=models.SET_NULL)
+    EmailAnnanceur = models.EmailField(max_length=254, null=True)
 
     def __str__(self):
         return self.titre
@@ -33,28 +41,25 @@ class Annance(models.Model):
         ordering = ['-date']
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='Profile')
-    nom = models.CharField(max_length=50)
-    prenom = models.CharField(max_length=50)
-    telephone = models.CharField(max_length=50)
-    adresse = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.user.username
-
-
 class Photo(models.Model):
 
     image = models.ImageField(upload_to='annonce_imgs/', null=True)
-    idAnnance = models.ForeignKey(
-        Annance, null=True, on_delete=models.SET_NULL, related_name='annonce_imgs')
+    titreAnnance = models.CharField(max_length=200)
 
 
 class Message(models.Model):
-
+    Etat = (
+        ('read', 'read'),
+        ('unread', 'unread'),
+    )
+    status = models.CharField(
+        max_length=50, null=True, choices=Etat)
     contenu = models.TextField(max_length=250)
-    userSource = models.CharField(max_length=60)
-    userDestination = models.ForeignKey(
-        User, null=True, on_delete=models.SET_NULL)
+    userSource = models.EmailField(max_length=254, null=True)
+    userDestination = models.EmailField(max_length=254, null=True)
+    date = models.DateField(null=True)
+    titreAnnance = models.CharField(
+        max_length=200, null=True)
+
+    class Meta:
+        ordering = ['-date']

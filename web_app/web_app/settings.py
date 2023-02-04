@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app_annance',
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +93,7 @@ WSGI_APPLICATION = 'web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tp_igl_bdd',
+        'NAME': 'bd_igl_tp',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

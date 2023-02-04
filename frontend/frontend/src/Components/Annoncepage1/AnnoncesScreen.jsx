@@ -24,7 +24,10 @@ function AnnoncesScreen(){
           if(search =="type"){
             fetchData('http://127.0.0.1:8000/annancefiltretype/'+titre) ;
           }else {
-          fetchData('http://127.0.0.1:8000/annance/') ;}
+            if(search =="periode"){
+              fetchData('http://127.0.0.1:8000/annancefiltreperiode/'+titre) ;
+            }else {
+          fetchData('http://127.0.0.1:8000/annance/') ;}}
        }
 }}}) ;
 
@@ -36,13 +39,12 @@ function AnnoncesScreen(){
       }) ;
   }
   return (
-    <div classNameName="AnnoncesC">
+    <div className="AnnoncesC">
       { 
       Annances.map((annance) => <CardAnnonce annance={annance} />)
       }
-
     </div>
   )
-}
+} 
 
 export default AnnoncesScreen

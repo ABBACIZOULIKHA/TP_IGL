@@ -21,7 +21,6 @@ const HouseList = () => {
           return (
             <Link to={`/property/${house.id}`} key={index}>
               <House house={house} />
-              <Header house ={house}/>
             </Link>
           );
         })}
