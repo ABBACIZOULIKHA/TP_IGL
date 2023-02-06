@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, pagination
-
+from rest_framework.pagination import PageNumberPagination
 from .serializers import AnnanceSerializer, ProfileSerializer, PhotoSerializer, MessageSerializer
 from . import models
 # Create your views here.
@@ -9,6 +9,11 @@ from . import models
 # class AnnanceViewSet(viewsets.ModelViewSet):
 #     serializer_class = AnnanceSerializer
 #     queryset = Annance.objects.all().order_by('-date')
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 1
+    page_size_query_param = 'page_size'
+    max_page_size = 1
 
 
 class AnnanceList(generics.ListCreateAPIView):
@@ -95,6 +100,7 @@ class AnnanceFiltreType(generics.ListAPIView):
 class ProfileList(generics.ListCreateAPIView):
     queryset = models.Profile.objects.all()
     serializer_class = ProfileSerializer
+    pagination_class = StandardResultsSetPagination
 
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):

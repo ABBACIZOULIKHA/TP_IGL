@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 04 fév. 2023 à 22:09
+-- Généré le : lun. 06 fév. 2023 à 19:54
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 7.4.33
 
@@ -39,18 +39,17 @@ CREATE TABLE `app_annance_annance` (
   `commune` varchar(50) NOT NULL,
   `adresse` longtext NOT NULL,
   `date` date DEFAULT NULL,
-  `EmailAnnanceur` varchar(254) DEFAULT NULL
+  `EmailAnnanceur` varchar(254) DEFAULT NULL,
+  `urlgoogleMap` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `app_annance_annance`
 --
 
-INSERT INTO `app_annance_annance` (`id`, `titre`, `categorie`, `type`, `surface`, `description`, `prix`, `wilaya`, `commune`, `adresse`, `date`, `EmailAnnanceur`) VALUES
-(61, 'appartement alger', 'Location', 'appartement', '1232', 'C\'est une appartement', 300000, 'Alger', 'Bab Ezzouar', 'Cité rabia', '2023-02-04', 'kz_abbaci@esi.dz'),
-(62, 'maison rahma', 'Vente', 'maison', '4003', 'c\'est une maison', 10000000, 'Blida', 'chiffa', 'Moda brich', '2022-10-05', 'kz_abbaci@esi.dz'),
-(63, 'terrain  Béjaia', 'Vente', 'terrain', '1532', 'C\'est un terrain', 900000000, 'Béjaia', 'Amizour', 'Cnep Banque', '2023-01-04', 'ky_larbaoui@esi.dz'),
-(64, 'maison zahra', 'Location_Vacances', 'maison', '4090', 'C\'est une maison pour les vacances', 2000000, 'Jijel', 'Texana', 'Banque Badr', '2022-08-05', 'kz_abbaci@esi.dz');
+INSERT INTO `app_annance_annance` (`id`, `titre`, `categorie`, `type`, `surface`, `description`, `prix`, `wilaya`, `commune`, `adresse`, `date`, `EmailAnnanceur`, `urlgoogleMap`) VALUES
+(65, 'logement au bout de mer', 'Location', 'appartement', '12341', 'c\'est une appartement', 150000000, 'tipaza', 'tipaza', 'rue de stade', '2023-01-13', 'kz_abbaci@esi.dz', 'https://www.google.com/maps/place/Rue+du+Stade,+Tipaza/@36.5881394,2.4382066,19z/data=!4m5!3m4!1s0x12857f8aff331135:0xe1ca8d049ed1079!8m2!3d36.5869958!4d2.4386948'),
+(66, 'terain blida', 'Vente', 'terrain', '48485', 'c\'est un terrain', 300000, 'Blida', 'beni tamo', 'rue amrane ali', '2023-02-06', 'kz_abbaci@esi.dz', 'https://www.google.com/maps/place/Rue+Amrane+Ali,+Beni+Tamou/@36.5328594,2.816386,15z/data=!4m5!3m4!1s0x128f0a54fcdb4343:0xa3f10d9440850313!8m2!3d36.534256!4d2.8211818');
 
 -- --------------------------------------------------------
 
@@ -92,10 +91,9 @@ CREATE TABLE `app_annance_photo` (
 --
 
 INSERT INTO `app_annance_photo` (`id`, `image`, `titreAnnance`) VALUES
-(53, 'annonce_imgs/Appartement1_2AHdwkG.jpg', 'appartement alger'),
-(54, 'annonce_imgs/terrain1_DEa4Eyy.jpg', 'terrain Béjaia'),
-(55, 'annonce_imgs/maison_mer2_DXHwaKt.jpg', 'maison rahma'),
-(56, 'annonce_imgs/images_audemer_Grex6QB.jpg', 'maison zahra');
+(57, 'annonce_imgs/Appartement1_N5JXo9Q.jpg', 'logement au bout de mer'),
+(58, 'annonce_imgs/terrain2_hdlyyfh.jpg', 'terain blida'),
+(59, 'annonce_imgs/terrain3_nzqfPNt.jpg', 'terain blida');
 
 -- --------------------------------------------------------
 
@@ -298,7 +296,10 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (21, '2023-02-04 21:06:02.966218', '53', 'Photo object (53)', 1, '[{\"added\": {}}]', 10, 1),
 (22, '2023-02-04 21:06:30.748341', '54', 'Photo object (54)', 1, '[{\"added\": {}}]', 10, 1),
 (23, '2023-02-04 21:07:02.849916', '55', 'Photo object (55)', 1, '[{\"added\": {}}]', 10, 1),
-(24, '2023-02-04 21:07:29.286590', '56', 'Photo object (56)', 1, '[{\"added\": {}}]', 10, 1);
+(24, '2023-02-04 21:07:29.286590', '56', 'Photo object (56)', 1, '[{\"added\": {}}]', 10, 1),
+(25, '2023-02-06 17:23:40.686966', '65', 'logement au bout de mer', 1, '[{\"added\": {}}]', 7, 1),
+(26, '2023-02-06 17:35:30.259878', '57', 'Photo object (57)', 1, '[{\"added\": {}}]', 10, 1),
+(27, '2023-02-06 18:13:10.339157', '59', 'Photo object (59)', 1, '[{\"added\": {}}]', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -368,7 +369,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (20, 'auth', '0012_alter_user_first_name_max_length', '2023-02-02 11:15:27.788794'),
 (21, 'sessions', '0001_initial', '2023-02-02 11:15:27.811786'),
 (22, 'app_annance', '0004_remove_profile_username', '2023-02-02 14:19:02.017077'),
-(23, 'app_annance', '0005_remove_annance_idannanceur_remove_photo_idannance_and_more', '2023-02-02 15:32:30.716451');
+(23, 'app_annance', '0005_remove_annance_idannanceur_remove_photo_idannance_and_more', '2023-02-02 15:32:30.716451'),
+(24, 'app_annance', '0006_alter_message_options_annance_urlgooglemap', '2023-02-06 17:17:44.783144');
 
 -- --------------------------------------------------------
 
@@ -500,7 +502,7 @@ ALTER TABLE `django_session`
 -- AUTO_INCREMENT pour la table `app_annance_annance`
 --
 ALTER TABLE `app_annance_annance`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT pour la table `app_annance_message`
@@ -512,7 +514,7 @@ ALTER TABLE `app_annance_message`
 -- AUTO_INCREMENT pour la table `app_annance_photo`
 --
 ALTER TABLE `app_annance_photo`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT pour la table `app_annance_profile`
@@ -560,7 +562,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT pour la table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `django_content_type`
@@ -572,7 +574,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT pour la table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Contraintes pour les tables déchargées

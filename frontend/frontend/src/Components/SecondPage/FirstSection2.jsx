@@ -90,9 +90,9 @@ const FirstSection2 = () => {
           {
             photoData.map((photo)=>
             <div className="ImagesAnnonce">
-            <i class="fa-solid fa-arrow-left"></i>
+            <button className='page-link'> <i class="fa-solid fa-arrow-left"></i></button>
                <img src={photo.image} />
-              <i class="fa-solid fa-arrow-right"></i>
+            <button className='page-link'><i class="fa-solid fa-arrow-right"></i></button>
               </div>
             )
           }       
