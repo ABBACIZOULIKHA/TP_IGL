@@ -33,6 +33,7 @@ class Annance(models.Model):
     adresse = models.TextField(blank=True)
     date = models.DateField(null=True)
     EmailAnnanceur = models.EmailField(max_length=254, null=True)
+    urlgoogleMap = models.URLField(max_length=200, null=True)
 
     def __str__(self):
         return self.titre

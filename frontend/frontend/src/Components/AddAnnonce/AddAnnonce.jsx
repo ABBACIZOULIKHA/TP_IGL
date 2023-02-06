@@ -21,7 +21,8 @@ const AddAnnonce = () => {
     commune:'',
     adresse:'',
     date:'',
-    EmailAnnanceur:''
+    EmailAnnanceur:'',
+    urlgoogleMap:''
       }) ;
  
   const handleChange=(event)=>{
@@ -54,6 +55,8 @@ const AddAnnonce = () => {
        _formData1.append('adresse',annanceData.adresse)
        _formData1.append('date',today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate())
        _formData1.append('EmailAnnanceur',localStorage.getItem("email"))
+       _formData1.append('urlgoogleMap',annanceData.urlgoogleMap)
+       
       const _formData2=new FormData();
       _formData2.append('image',photoData.image);
       _formData2.append("titreAnnance",annanceData.titre) 
@@ -186,6 +189,11 @@ const AddAnnonce = () => {
               <label>Adresse: </label>
               <input  onChange={handleChange}
               name='adresse' id='adresse'/>
+            </div>
+            <div>
+              <label>Add Google Maps link: </label>
+              <input  onChange={handleChange}
+              name='urlgoogleMap' id='urlgoogleMap'/>
             </div>
             <div>
               <label>Prix(DA): </label>

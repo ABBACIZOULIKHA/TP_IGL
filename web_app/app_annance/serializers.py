@@ -7,7 +7,7 @@ class AnnanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Annance
         fields = ('id', 'titre', 'categorie', 'type', 'surface', 'description',
-                  'prix', 'wilaya', 'commune', 'adresse', 'date', 'EmailAnnanceur')
+                  'prix', 'wilaya', 'commune', 'adresse', 'date', 'EmailAnnanceur', 'urlgoogleMap')
 
     def __init__(self, *args, **kwargs):
         super(AnnanceSerializer, self).__init__(*args, **kwargs)

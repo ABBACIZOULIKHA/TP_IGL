@@ -4,7 +4,7 @@ from .models import Annance, Profile, Photo, Message
 
 class AdminAnnance(admin.ModelAdmin):
     list_display = ('titre', 'categorie', 'type', 'surface',
-                    'description', 'prix', 'wilaya', 'commune', 'adresse', 'date', 'EmailAnnanceur')
+                    'description', 'prix', 'wilaya', 'commune', 'adresse', 'date', 'EmailAnnanceur', 'urlgoogleMap')
 
 
 class AdminProfil(admin.ModelAdmin):

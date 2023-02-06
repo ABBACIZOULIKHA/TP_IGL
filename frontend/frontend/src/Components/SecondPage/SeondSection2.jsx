@@ -20,8 +20,8 @@ const SeondSection2 = () => {
   }
   return (
     <section className="SecondSection2">
-      <h1> Description </h1>
-      <p>{annanceData.description}</p>
+      <h1> Description : {annanceData.description} </h1>
+      <p></p>
     </section>
   )
 }

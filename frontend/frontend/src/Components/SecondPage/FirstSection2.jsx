@@ -83,7 +83,7 @@ const FirstSection2 = () => {
           <div className="TitreInfo">
             <h1>{annanceData.titre}</h1>
             <div>
-              <p> localisation : {annanceData.wilaya},{annanceData.commune} ,{annanceData.adresse}</p>
+              <p> localisation : {annanceData.wilaya},{annanceData.commune} ,{annanceData.adresse} ## <a href={annanceData.urlgoogleMap}>google maps link </a> </p>
               
             </div>
           </div>
@@ -100,6 +100,7 @@ const FirstSection2 = () => {
            <p> Surface :{annanceData.surface} m²</p>
           <p>Categorie :{annanceData.categorie}</p>
            <p>Type :{annanceData.type}</p>
+          
         </div>
         <div className="ContactUser">
           {/* <h3>{annanceData.idAnnanceur}  </h3> */}

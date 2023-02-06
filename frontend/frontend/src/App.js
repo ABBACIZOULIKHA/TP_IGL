@@ -11,7 +11,6 @@ import Home from "./Components/Home";
 import SecondHeader from "./Components/SecondPage/SecondHeader";
 import FirstSection2 from "./Components/SecondPage/FirstSection2";
 import SecondSection2 from "./Components/SecondPage/SeondSection2";
-import FindMoreSection from "./Components/SecondPage/FindMoreSection";
 import ProfileAccount2 from  "./Components/ProfileAccount/ProfileAccount2";
 // first section new version
 import FirstSection from "./Components/FirstPage/FirstSection";
@@ -41,7 +40,7 @@ function App() {
         <Routes>
           <Route exact path="/signup" element={<Singup/>}/>
           <Route exact path="/annonces" element={<Home/>}/>
-          <Route exact path='/contactuser/:annance_id' element={ <div><SecondHeader/><FirstSection2/><SecondSection2/><FindMoreSection/></div> }/>
+          <Route exact path='/contactuser/:annance_id' element={ <div><SecondHeader/><FirstSection2/><SecondSection2/></div> }/>
           <Route exact path='/:search/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
           <Route exact path='/:wilaya/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
           <Route exact path='/:commune/:titre' element={ <div><AnnonoceHeader/><AnnoncePSection1/><AnnoncesScreen/> <PrincipalFooter/></div> }/>
@@ -53,10 +52,12 @@ function App() {
            <Route exact path="/MonCompte" element={ <div><ProfileAccount2/></div>} /> 
            <Route exact path="/ListUsers" element={ <div><ListUsers/></div>} /> 
            <Route exact path="/ListMessages" element={ <div><ListMessages/></div>} />   
-        <Route exact path="/profile" element={<ProfileAccount/>}/>
+         <Route exact path="/profile" element={<ProfileAccount/>}/>
           <Route exact path="/addannonce" element = {<AddAnnonce/>}/>
           <Route exact path="/Msglist" element = {<Msglist/>}/>
           <Route exact path="/MyAnnonces" element = {<div><SecondHeader /><AnnoncesScreen2/></div>}/>
+        
+          
           
         </Routes>
       </BrowserRouter>

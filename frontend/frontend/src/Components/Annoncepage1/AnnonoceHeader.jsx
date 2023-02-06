@@ -23,11 +23,6 @@ const AnnonoceHeader = () => {
          }     
   const [isOpen, setisOpen] = useState(false)
 
-  function formSubmit(){        
-    axios.put('http://127.0.0.1:8000/message/'+2,{
-     status: 'read'
-    })   
-}
   
    
 
@@ -52,7 +47,7 @@ const AnnonoceHeader = () => {
           <UserBar open={isOpen} /> */}
         </div>
         <div>
-        <Link to ={'/ListMessages'}><i onClick={formSubmit} class="fa-brands fa-facebook-messenger"><span class="float-end badge bg-danger mt-l">{msgs.length}</span></i></Link>
+        <Link to ={'/ListMessages'}><i class="fa-brands fa-facebook-messenger"><span class="float-end badge bg-danger mt-l">{msgs.length}</span></i></Link>
         </div>
       </div>
       <Link className="AddButton">
